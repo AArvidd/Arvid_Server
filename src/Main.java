@@ -38,7 +38,7 @@ public class Main {
 
 
                 //sends message
-                pw.println("Input mathematical computation write bye to exit: ");
+                pw.println("Input mathematical computation, write \"bye\" to exit: ");
 
                 //client answer
                 String msgFromClient = br.readLine().replace(" ", "");
@@ -69,8 +69,8 @@ public class Main {
                 float num2;
 
                 try {
-                    num1 = Integer.parseInt(msgFromClient.substring(0, operatorP));
-                    num2 = Integer.parseInt(msgFromClient.substring(operatorP + 1));
+                    num1 = Float.parseFloat(msgFromClient.substring(0, operatorP));
+                    num2 = Float.parseFloat(msgFromClient.substring(operatorP + 1));
                 }catch(Exception e){
                     pw.println("Not a mathematical computation");
                     continue;
