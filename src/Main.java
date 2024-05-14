@@ -38,7 +38,7 @@ public class Main {
 
 
                 //sends message
-                pw.println("Input mathematical computation: ");
+                pw.println("Input mathematical computation write bye to exit: ");
 
                 //client answer
                 String msgFromClient = br.readLine().replace(" ", "");
