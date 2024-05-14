@@ -65,8 +65,8 @@ public class Main {
                     continue;
                 }
 
-                int num1;
-                int num2;
+                float num1;
+                float num2;
 
                 try {
                     num1 = Integer.parseInt(msgFromClient.substring(0, operatorP));
@@ -81,7 +81,7 @@ public class Main {
                     continue;
                 }
 
-                int sum = 0;
+                float sum = 0;
 
                 switch(operation){
                     case 0 -> sum = num1 + num2;
