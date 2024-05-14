@@ -44,6 +44,7 @@ public class Main {
                 String msgFromClient = br.readLine().replace(" ", "");
 
                 if(msgFromClient.equalsIgnoreCase("bye")){
+                    pw.println("goodbye");
                     server.close();
                     client.close();
                     break;
