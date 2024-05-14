@@ -43,6 +43,11 @@ public class Main {
                 //client answer
                 String msgFromClient = br.readLine().replace(" ", "");
 
+                if(msgFromClient.equalsIgnoreCase("bye")){
+                    server.close();
+                    client.close();
+                    break;
+                }
 
                 int operation = -1;
                 int operatorP = -1;
@@ -59,19 +64,33 @@ public class Main {
                     continue;
                 }
 
-                //todo add try cat that around num2
-                int num1 = Integer.parseInt(msgFromClient.substring(0, operatorP));
-                int num2 = Integer.parseInt(msgFromClient.substring(operatorP + 1));
+                int num1;
+                int num2;
 
-
-
-
-
-                if(msgFromClient != null && msgFromClient.equalsIgnoreCase("bye")){
-                    server.close();
-                    client.close();
-                    break;
+                try {
+                    num1 = Integer.parseInt(msgFromClient.substring(0, operatorP));
+                    num2 = Integer.parseInt(msgFromClient.substring(operatorP + 1));
+                }catch(Exception e){
+                    pw.println("Not a mathematical computation");
+                    continue;
                 }
+
+                if(operation == 3 && num2 == 0){
+                    pw.println("Can not divide by 0");
+                    continue;
+                }
+
+                int sum = 0;
+
+                switch(operation){
+                    case 0 -> sum = num1 + num2;
+                    case 1 -> sum = num1 - num2;
+                    case 2 -> sum = num1 * num2;
+                    case 3 -> sum = num1 / num2;
+                }
+
+                String msg = num1 + " " + operators[operation] + " " + num2 + " = " + sum;
+                pw.println(msg);
 
             } catch (Exception e){
                 System.out.println("an error occurred");
